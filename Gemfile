@@ -1,4 +1,4 @@
-csource 'https://rubygems.org'
+source 'https://rubygems.org'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'

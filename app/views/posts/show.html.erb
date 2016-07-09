@@ -1,0 +1,12 @@
+
+
+<% @user = User.find(@post.user_id) %>
+<%= image_tag @user.photo %>
+<%= @user.name %>
+<%= image_tag @post.photo %>
+<%= @post.description %>
+<% if @post.user_id == current_user.id %>
+	<%= link_to "Edit Post", edit_post_path(@post.id) %>
+	<%= link_to "Delete Post", post_path(@post.id), method: :delete %>
+<% end %>
+

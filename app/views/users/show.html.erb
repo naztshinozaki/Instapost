@@ -1,0 +1,21 @@
+
+
+
+<div class="user_header">
+	<%= image_tag @user.photo, class: 'prof_pic2' %>
+	<span class= "user_name"> <%= @user.name %> </span>
+
+
+<% pluralize(@user.posts.count, 'Post') %>
+
+</div>
+
+<div class="container">
+<div class= "row">
+	<% @user.posts.each do |post| %>
+	<div class = "col-md-4">
+		<%= image_tag post.photo, class: 'user_photos_lg' %>
+	</div>
+	<% end %>
+</div>
+</div>

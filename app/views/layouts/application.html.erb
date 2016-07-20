@@ -1,24 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Instapost</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
+	  <title>Instapost</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	  <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+	  <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">
+	</head>
 <body>
-<nav>
-	<% if user_signed_in? %>
-		<%= link_to "Edit Settings", edit_user_registration_path %>
-		<%= link_to  "Log Out", destroy_user_session_path, method: :delete %>
-		<%= link_to "New Post", new_post_path %>
-	<% else
-	 %>
-		<%= link_to "Sign up", new_user_registration_path %>
-		<%= link_to "Log in", new_user_session_path %>
-	<% end %>
-</nav>
+<div id = "wrap">
+	<nav>
+	<div class="container">
+		<div class= "row">
+
+			<div class = "col-md-4">
+
+				 <%= link_to '<i class="fa fa-instagram fa-2x" aria-hidden="true"></i>'.html_safe, root_path, class: 'link-to-text-color' %>
+				 <%= link_to '<span class="brand">Instapost</span>'.html_safe, root_path, class: 'link-to-text-color' %>
+			</div>
+			 <div class = "col-md-4">
+			 <input type="text" placeholder="Search">
+			 </div>
+			 <div class = "col-md-4">
+
+
+			<% if user_signed_in? %>
+				<%= link_to '<i class="fa fa-compass fa-2x fa-fw" aria-hidden="true"></i>'.html_safe, new_post_path, class: 'link-to-text-color' %>
+				<%= link_to '<i class="fa fa-heart-o fa-2x fa-fw" aria-hidden="true"></i>'.html_safe, edit_user_registration_path, class: 'link-to-text-color' %>
+				<%= link_to  '<i class="fa fa-user fa-2x fa-fw" aria-hidden="true"></i>'.html_safe, destroy_user_session_path, class: 'link-to-text-color',  method: :delete %>
+				
+			<% else%>
+				<%= link_to "Sign up", new_user_registration_path %>
+				<%= link_to "Log in", new_user_session_path %>
+			<% end %>
+
+			 </div>
+        
+		</div>
+	</div>
+	</nav>
 <%= yield %>
 
+
+</div>
 </body>
 </html>
